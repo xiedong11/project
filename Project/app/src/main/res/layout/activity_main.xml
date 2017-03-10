@@ -23,4 +23,11 @@
     <!--<com.example.project.view.CountDownView-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"/>-->
+
+
+    <EditText
+        android:hint="请输入小于6位"
+        android:id="@+id/ed_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
