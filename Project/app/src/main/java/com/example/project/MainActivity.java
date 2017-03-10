@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.example.project.view.CountDownView;
 import com.example.project.view.MyButton;
 import com.example.project.view.MyView;
+import com.example.project.view.MyViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
             public void myClick() {
 
                 System.out.println("_------------d---------");
+
+                startActivity(new Intent(MainActivity.this, MyViewActivity.class));
+
             }
         });
 
