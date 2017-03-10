@@ -6,18 +6,24 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project.view.CountDownView;
+import com.example.project.view.MyButton;
+import com.example.project.view.MyView;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView bindView;
     private CountDownView countDownView;
     private EditText ed_content;
+    private MyButton mButton;
+    private MyView myView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +34,34 @@ public class MainActivity extends AppCompatActivity {
         countDownView = new CountDownView(this);
         countDownView.bindCountdown2View(bindView);
 
-
         addContentView(countDownView,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+
+
+        mButton = (MyButton) findViewById(R.id.my_btn);
+        mButton.setMyOnClickListener(new MyButton.MyOnClickListener() {
+            @Override
+            public void myClick() {
+
+                System.out.println("_------------d---------");
+            }
+        });
+
+
+        myView = (MyView) findViewById(R.id.my_view);
+//        myView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                System.out.println("______________ddddd__________");
+//            }
+//        });
+
+        myView.setMyViewClickListener(new MyView.MyViewClickListener() {
+            @Override
+            public void myClick() {
+                System.out.println("************Dddd*************");
+            }
+        });
+
 
 
         ed_content = (EditText) findViewById(R.id.ed_content);
