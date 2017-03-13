@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.example.project.R;
 import com.example.project.recyclerview.RecyclerViewActivity;
+import com.example.project.recyclerview.RecyclerView_2;
 
 public class MyViewActivity extends AppCompatActivity {
 
@@ -27,5 +28,11 @@ public class MyViewActivity extends AppCompatActivity {
         });
 
         title.setTitleText("自定义TitleBar");
+    }
+
+
+    //按钮 用于打开RecyclerView界面
+    public void RecyclerView_BTN(View v){
+        startActivity(new Intent(MyViewActivity.this, RecyclerView_2.class));
     }
 }

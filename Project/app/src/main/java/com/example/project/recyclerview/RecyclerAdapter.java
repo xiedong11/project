@@ -21,6 +21,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<MyViewHolder>{
     private Context mContext;
     private LayoutInflater mInflater;
 
+
+
+    private OnMyItemClickListener listener;
+    public void setOnMyItemClickListener(OnMyItemClickListener listener){
+        this.listener = listener;
+
+    }
+
+    public interface OnMyItemClickListener{
+        void myClick(View v,int pos);
+        void mLongClick(View v,int pos);
+    }
+
     public RecyclerAdapter(Context mContext,List<String> mDatas) {
         this.mDatas = mDatas;
         this.mContext = mContext;
@@ -49,14 +62,52 @@ public class RecyclerAdapter extends RecyclerView.Adapter<MyViewHolder>{
      * @param position
      */
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
 
         holder.textView.setText(mDatas.get(position));
+        if (listener!=null) {
+            holder.textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.myClick(v,position);
+                }
+            });
+
+
+            // set LongClick
+            holder.textView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    listener.mLongClick(v,position);
+                    return true;
+                }
+            });
+        }
+
+
     }
 
     @Override
     public int getItemCount() {
         return mDatas.size();
+    }
+
+
+
+//     * ************添加删除增加Item的方法*************
+
+    public void addItem(int position){
+        mDatas.add(position,"New Data");
+        notifyItemInserted(position);
+        notifyItemRangeChanged(position,mDatas.size());
+    }
+
+
+    public void removeData(int position){
+        mDatas.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position,mDatas.size());
+
     }
 }
 
@@ -73,4 +124,9 @@ class MyViewHolder extends RecyclerView.ViewHolder{
 
         textView = ((TextView) itemView.findViewById(R.id.tv_content));
     }
+
+
+
+
+
 }

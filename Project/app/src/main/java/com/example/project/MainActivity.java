@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project.view.CountDownView;
+import com.example.project.view.MoveImageView;
 import com.example.project.view.MyButton;
 import com.example.project.view.MyView;
 import com.example.project.view.MyViewActivity;
@@ -64,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void myClick() {
                 System.out.println("************Dddd*************");
+
+                startActivity(new Intent(MainActivity.this, MoveImageView.class));
+
+
             }
         });
 
