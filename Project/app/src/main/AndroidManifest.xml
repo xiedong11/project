@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.project">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +20,8 @@
         <activity android:name=".view.MyViewActivity" />
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".view.MoveImageView" />
-        <activity android:name=".recyclerview.RecyclerView_2"></activity>
+        <activity android:name=".recyclerview.RecyclerView_2" />
+        <activity android:name=".okhttp.OKHttpTest"></activity>
     </application>
 
 </manifest>

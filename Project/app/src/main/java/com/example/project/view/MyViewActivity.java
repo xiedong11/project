@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.project.R;
+import com.example.project.okhttp.OKHttpTest;
 import com.example.project.recyclerview.RecyclerViewActivity;
 import com.example.project.recyclerview.RecyclerView_2;
+
+import java.io.IOException;
 
 public class MyViewActivity extends AppCompatActivity {
 
@@ -35,4 +38,11 @@ public class MyViewActivity extends AppCompatActivity {
     public void RecyclerView_BTN(View v){
         startActivity(new Intent(MyViewActivity.this, RecyclerView_2.class));
     }
+
+
+    //按钮 用于打开RecyclerView界面
+    public void OKHttp(View v){
+        startActivity(new Intent(MyViewActivity.this, OKHttpTest.class));
+    }
+
 }

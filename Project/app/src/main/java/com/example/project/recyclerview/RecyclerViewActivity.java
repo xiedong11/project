@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.project.R;
@@ -27,6 +28,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_view);
 
         initView();
+
 
         initData();
         recyclerAdapter = new RecyclerAdapter(this,mDatas);
