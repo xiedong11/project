@@ -31,5 +31,9 @@ public class EventBusSend extends BaseActivity {
         mButton = (Button) findViewById(R.id.btn_send);
         mButton.setOnClickListener(this);
 
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+
+
     }
 }
