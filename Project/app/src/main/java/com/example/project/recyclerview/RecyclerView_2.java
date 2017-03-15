@@ -136,7 +136,7 @@ public class RecyclerView_2 extends AppCompatActivity {
     }
 
 
-//    **********************************************      RecyclerView_2的Adapter类         ****************************************
+       /* **********************************************      RecyclerView_2的Adapter类         *************************************** */
 
     public class MyRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

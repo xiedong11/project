@@ -9,6 +9,9 @@ import android.widget.TextView;
 import com.example.project.R;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -55,5 +58,30 @@ public class OKHttpTest extends AppCompatActivity {
         });
 
 
+        Map<String,String> params = new HashMap<>();
+        params.put("username","xie");
+        params.put("password","123");
+
+
+
+//        post 提交数据
+
+        OkHttpManager.getInstance().postAsync("", params, new OkHttpManager.DataCallBack() {
+            @Override
+            public void requestFailure(Request request, IOException e) {
+
+            }
+
+            @Override
+            public void requestSuccess(String result) throws Exception {
+
+            }
+        });
+
+
+
+
     }
+
+
 }

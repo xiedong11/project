@@ -33,4 +33,17 @@
         android:text="OKHttp"
         android:id="@+id/okHttp"
         />
+    <Button
+        android:onClick="BASEACTIVITY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BASEACTIVITY"
+        android:id="@+id/BASEACTIVITY"
+        />
+    <Button
+        android:onClick="EVENTBUS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EVENTBUS"
+        />
 </LinearLayout>
