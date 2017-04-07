@@ -25,6 +25,7 @@
         <activity android:name=".base.test"/>
         <activity android:name=".eventbus.EventBusReceive"/>
         <activity android:name=".eventbus.EventBusSend"/>
+        <activity android:name=".indicator_point.IndicatorActivity"/>
     </application>
 
 </manifest>
