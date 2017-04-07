@@ -36,7 +36,9 @@ public class IndicatorActivity extends Activity {
         }
 
         mViewPager.setAdapter(new ViewPagerAdapter(this,mList));
-        initPageIndicator(4);
+
+        int size = mList.size();
+        initPageIndicator(size);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

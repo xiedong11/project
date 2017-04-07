@@ -26,16 +26,19 @@ public class ViewPagerAdapter extends PagerAdapter {
             return;
         }
         mInflater = LayoutInflater.from(context);
-        initView(list);
+        mList = list;
+
+
+//        initView(list);
 
     }
 
-    private void initView(List<View> list) {
-      for (View view :list){
-          View item = mInflater.inflate(R.layout.viewpager_item,null);
-          mList.add(item);
-      }
-    }
+//    private void initView(List<View> list) {
+//      for (View view :list){
+//          View item = mInflater.inflate(R.layout.viewpager_item,null);
+//          mList.add(item);
+//      }
+//    }
 
     @Override
     public int getCount() {
