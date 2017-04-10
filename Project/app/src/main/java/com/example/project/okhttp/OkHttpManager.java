@@ -3,7 +3,6 @@ package com.example.project.okhttp;
 import android.os.Handler;
 import android.os.Looper;
 
-import java.io.EOFException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -106,7 +105,7 @@ public class OkHttpManager {
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                sendRequestFaulureMessage(request, e, callBack);
+                sendRequestFailure(request, e, callBack);
             }
 
             @Override
@@ -115,7 +114,7 @@ public class OkHttpManager {
                 try {
                     result = response.body().string();
                 } catch (IOException e) {
-                    sendRequestFaulureMessage(request,e,callBack);
+                    sendRequestFailure(request,e,callBack);
                 }
 
                 sendRequestSuccess(result,callBack);
@@ -139,7 +138,7 @@ public class OkHttpManager {
         });
     }
 
-    private void sendRequestFaulureMessage(final Request request, final IOException e, final DataCallBack callBack) {
+    private void sendRequestFailure(final Request request, final IOException e, final DataCallBack callBack) {
         mHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -198,7 +197,7 @@ public class OkHttpManager {
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                sendRequestFaulureMessage(request,e,callBack);
+                sendRequestFailure(request,e,callBack);
             }
 
             @Override
