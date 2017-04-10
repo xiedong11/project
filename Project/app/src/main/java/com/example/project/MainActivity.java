@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.project.indicator_point.IndicatorActivity;
 import com.example.project.view.CountDownView;
 import com.example.project.view.MoveImageView;
 import com.example.project.view.MyButton;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private CountDownView countDownView;
     private EditText ed_content;
     private MyButton mButton;
+    private MyButton mButton2;
     private MyView myView;
 
     @Override
@@ -52,6 +54,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mButton2 = (MyButton) findViewById(R.id.my_btn_2);
+        mButton2.setMyOnClickListener(new MyButton.MyOnClickListener() {
+            @Override
+            public void myClick() {
+
+
+                startActivity(new Intent(MainActivity.this, IndicatorActivity.class));
+
+            }
+        });
 
         myView = (MyView) findViewById(R.id.my_view);
 //        myView.setOnClickListener(new View.OnClickListener() {
