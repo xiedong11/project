@@ -21,11 +21,21 @@
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".view.MoveImageView" />
         <activity android:name=".recyclerview.RecyclerView_2" />
-        <activity android:name=".okhttp.OKHttpTest"></activity>
-        <activity android:name=".base.test"/>
-        <activity android:name=".eventbus.EventBusReceive"/>
-        <activity android:name=".eventbus.EventBusSend"/>
-        <activity android:name=".indicator_point.IndicatorActivity"/>
+        <activity android:name=".okhttp.OKHttpTest" />
+        <activity android:name=".base.test" />
+        <activity android:name=".eventbus.EventBusReceive" />
+        <activity android:name=".eventbus.EventBusSend" />
+        <activity android:name=".indicator_point.IndicatorActivity" />
+
+        <service android:name=".service.MyService" />
+
+        <activity android:name=".SelectActivity"></activity>
+        <receiver android:name=".Receiver.MyReceiver">
+
+            <intent-filter>
+                <action android:name="com.zhuandian.MYRECEIVER"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

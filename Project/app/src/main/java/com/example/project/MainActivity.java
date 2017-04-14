@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private MyButton mButton;
     private MyButton mButton2;
     private MyView myView;
+    private MyButton mButton3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,17 @@ public class MainActivity extends AppCompatActivity {
 
 
                 startActivity(new Intent(MainActivity.this, IndicatorActivity.class));
+
+            }
+        });
+
+        mButton3 = (MyButton) findViewById(R.id.my_btn_3);
+        mButton3.setMyOnClickListener(new MyButton.MyOnClickListener() {
+            @Override
+            public void myClick() {
+
+
+                startActivity(new Intent(MainActivity.this, SelectActivity.class));
 
             }
         });
