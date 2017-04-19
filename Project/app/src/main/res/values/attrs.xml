@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="MyEditText">
         <attr name="myText" format="string"/>
+        <attr name="myImgResc" format="reference"/>
     </declare-styleable>
 </resources>

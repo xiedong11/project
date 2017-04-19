@@ -16,5 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:myText="xxxxxx"
+        app:myImgResc="@android:drawable/btn_star_big_off"
         />
 </LinearLayout>
