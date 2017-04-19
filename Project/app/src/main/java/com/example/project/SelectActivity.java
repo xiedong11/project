@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.project.service.MyService;
+import com.example.project.viewpager.ViewPagerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +39,14 @@ public class SelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 stopService(intent);
+            }
+        });
+
+        Button btn3 = (Button) findViewById(R.id.viewpager);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SelectActivity.this, ViewPagerActivity.class));
             }
         });
     }

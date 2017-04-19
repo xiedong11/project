@@ -24,11 +24,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-
+        <com.andexert.library.RippleView
+            android:id="@+id/more"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:layout_margin="5dp"
+            rv_centered="true">
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/recyclerview"
             />
+        </com.andexert.library.RippleView>
     </android.support.v4.widget.SwipeRefreshLayout>
 </android.support.design.widget.CoordinatorLayout>

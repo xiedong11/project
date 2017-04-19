@@ -22,6 +22,12 @@
         android:text="stop service"
         android:id="@+id/stop"
         />
-
+    <Button
+        android:layout_below="@+id/stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Pager"
+        android:id="@+id/viewpager"
+        />
 
 </RelativeLayout>

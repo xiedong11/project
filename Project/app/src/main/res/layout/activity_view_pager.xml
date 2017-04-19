@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_recycler_view"
+    android:id="@+id/activity_view_pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.project.recyclerview.RecyclerViewActivity">
-    <com.andexert.library.RippleView
-        android:id="@+id/more"
+    android:orientation="vertical"
+    tools:context="com.example.project.viewpager.ViewPagerActivity">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        rv_centered="true">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:layout_height="?actionBarSize" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    </com.andexert.library.RippleView>
-</RelativeLayout>
+</LinearLayout>

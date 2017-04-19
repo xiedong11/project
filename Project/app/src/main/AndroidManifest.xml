@@ -3,6 +3,7 @@
     package="com.example.project">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -29,13 +30,17 @@
 
         <service android:name=".service.MyService" />
 
-        <activity android:name=".SelectActivity"></activity>
-        <receiver android:name=".Receiver.MyReceiver">
+        <activity android:name=".SelectActivity" />
 
+        <receiver android:name=".Receiver.MyReceiver">
             <intent-filter>
-                <action android:name="com.zhuandian.MYRECEIVER"/>
+
+                <!-- <action android:name="com.zhuandian.MYRECEIVER"/> -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".viewpager.ViewPagerActivity"></activity>
     </application>
 
 </manifest>
