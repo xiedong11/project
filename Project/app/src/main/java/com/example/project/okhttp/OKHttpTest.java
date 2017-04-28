@@ -1,5 +1,6 @@
 package com.example.project.okhttp;
 
+import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,10 @@ public class OKHttpTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp_test);
 
+
+
     }
+
 
 
     public void HttpGet(View v) {

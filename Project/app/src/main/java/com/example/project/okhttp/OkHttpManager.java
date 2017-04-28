@@ -88,16 +88,9 @@ public class OkHttpManager {
     }
 
 
-
-
-
-
-
-
-    public static void getAsync(String url, DataCallBack callBack){
-        sOkHttpManager.inner_getAsync(url,callBack);
+    public void getAsync(String url, DataCallBack callBack) {
+        sOkHttpManager.inner_getAsync(url, callBack);
     }
-
 
 
     private void inner_getAsync(String url, final DataCallBack callBack) {
@@ -114,10 +107,10 @@ public class OkHttpManager {
                 try {
                     result = response.body().string();
                 } catch (IOException e) {
-                    sendRequestFailure(request,e,callBack);
+                    sendRequestFailure(request, e, callBack);
                 }
 
-                sendRequestSuccess(result,callBack);
+                sendRequestSuccess(result, callBack);
             }
         });
 
@@ -127,7 +120,7 @@ public class OkHttpManager {
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                if(callBack != null){
+                if (callBack != null) {
                     try {
                         callBack.requestSuccess(result);
                     } catch (Exception e) {
@@ -156,19 +149,15 @@ public class OkHttpManager {
     }
 
 
-
-
-
-
-    public static void postAsync(String url , Map<String ,String> params, DataCallBack callBack){
-        sOkHttpManager.inner_postAsync(url,params,callBack);
+    public static void postAsync(String url, Map<String, String> params, DataCallBack callBack) {
+        sOkHttpManager.inner_postAsync(url, params, callBack);
     }
 
     private void inner_postAsync(String url, Map<String, String> params, final DataCallBack callBack) {
 
 
         RequestBody requestBody = null;
-        if(params == null){
+        if (params == null) {
             params = new HashMap<>();
         }
 
@@ -176,17 +165,17 @@ public class OkHttpManager {
         FormBody.Builder builder = new FormBody.Builder();
 
 
-        for (Map.Entry<String ,String> map :params.entrySet()){
+        for (Map.Entry<String, String> map : params.entrySet()) {
             String key = map.getKey().toString();
-            String value =null;
+            String value = null;
 
-            if (map.getValue() == null){
+            if (map.getValue() == null) {
                 value = "";
-            }else {
+            } else {
                 value = map.getValue();
             }
 
-            builder.add(key,value);
+            builder.add(key, value);
         }
 
         requestBody = builder.build();
@@ -197,18 +186,54 @@ public class OkHttpManager {
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                sendRequestFailure(request,e,callBack);
+                sendRequestFailure(request, e, callBack);
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
                 String result = response.body().toString();
-                sendRequestSuccess(result,callBack);
+                sendRequestSuccess(result, callBack);
             }
         });
 
 
     }
+
+
+
+
+    /*
+    封装未完成
+     */
+
+    public void getCode(String ip, Object tag, OkNetworkListener<Integer> networkListener) {
+        OkHttpManager.getInstance().getStatusCode(ip, tag, new OkNetworkListener<Integer>() {
+            @Override
+            public void onNetworkReceived(Integer received) {
+
+            }
+
+            @Override
+            public void onNetworkError(Exception e) {
+
+            }
+        });
+    }
+
+    private void getStatusCode(String ip, Object tag, final OkNetworkListener<Integer> networkListener) {
+        OkHttpManager.getInstance().getAsync(ip, new DataCallBack() {
+            @Override
+            public void requestFailure(Request request, IOException e) {
+
+            }
+
+            @Override
+            public void requestSuccess(String result) throws Exception {
+                networkListener.onNetworkReceived(1);
+            }
+        });
+    }
+
 
 }
