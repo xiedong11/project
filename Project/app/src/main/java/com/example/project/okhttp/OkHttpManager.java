@@ -3,7 +3,10 @@ package com.example.project.okhttp;
 import android.os.Handler;
 import android.os.Looper;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -201,13 +204,43 @@ public class OkHttpManager {
     }
 
 
+public void downloadAsync(String url, final String fileDir, final String fileName, Object tag, final DataCallBack callBack){
+    final Request request = new Request.Builder().url(url).tag(tag).build();
+    mOkHttpClient.newCall(request).enqueue(new Callback() {
+        @Override
+        public void onFailure(Call call, IOException e) {
+            sendRequestFailure(request,e,callBack);
+        }
 
+        InputStream is = null;
+
+        @Override
+        public void onResponse(Call call, Response response) throws IOException {
+            InputStream is=null;
+            byte[] bytes = new byte[1024*2];
+            int len=0;
+            FileOutputStream fos =null;
+            is= response.body().byteStream();
+            File file = new File(fileDir,fileName);
+            if (file.exists()){
+                file.delete();
+            }
+
+            fos = new FileOutputStream(file);
+            while ((len=is.read(bytes))!=-1){
+                fos.write(bytes,0,len);
+            }
+            fos.flush();
+            sendRequestSuccess("success",callBack);
+        }
+    });
+}
 
     /*
     封装未完成
      */
 
-    public void getCode(String ip, Object tag, OkNetworkListener<Integer> networkListener) {
+    public void getCode(final String ip, Object tag, OkNetworkListener<Integer> networkListener) {
         OkHttpManager.getInstance().getStatusCode(ip, tag, new OkNetworkListener<Integer>() {
             @Override
             public void onNetworkReceived(Integer received) {
